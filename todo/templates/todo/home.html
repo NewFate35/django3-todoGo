@@ -1,0 +1,18 @@
+{% extends 'todo/base.html'%}
+
+{% block content %}
+
+<div class="row justify-content-center mt-5">
+        <div class="col-md-7 text-center">
+            <h1>Добро пожаловать в Todo Go</h1>
+                <p>"Тут мотивирующий текст, как планировщик поможет вам реализовать себя"</p>
+            {% if request.user.is_authenticated %}
+            <a role="button" class="btn btn-primary btn-lg" href="{% url 'current_tasks' %}">Начать</a>
+            {% else %}
+            <a role="button" class="btn btn-primary btn-lg" href="{% url 'signup_user' %}">Начать</a>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+

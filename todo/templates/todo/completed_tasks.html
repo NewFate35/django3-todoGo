@@ -1,0 +1,24 @@
+{% extends 'todo/base.html'%}
+
+{% block content %}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-10">
+        <h1>Выполненные задачи</h1>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-10">
+        <div class="list-group">
+            {% for task in todos %}
+            <a href="{% url 'view_todo' task.id %}"
+               class="list-group-item list-group-item-action" {% if task.important %}style="background-color:Khaki;"{% endif %}><b>
+                {{ task.title }}</b> - Выполнено {{ task.completedAt }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
